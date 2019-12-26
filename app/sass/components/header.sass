@@ -1,15 +1,62 @@
+//burger
+.mobile-burger 
+	width: 18px
+	height: 16px
+	position: relative
+	cursor: pointer
+	display: inline-block
+
+	&__inner, &:after, &:before
+		height: 2px
+		width: 100%	
+		background-color: #000
+		position: absolute
+
+	&:after
+		bottom: 0
+
+	&:before 
+		top: 0
+
+	&__inner
+		top: 50%
+		transform: translate(0, -50%)
+
+
+	&:before, &:after
+		content: ''
+
+
+
+
+
 .main-header 
-	background-color: orange
 	color: #fff
+	padding-top: 30px
+	
+	&__mobile
+		display: none
 
 	&__desc-mini,
 	&__top-line-right,
 	&__phone,
 	&__message, 
-	&__location 
+	&__location-list,
+	&__location-link,
+	&__nav,
+	&__list,
+	&__list-item,
+	&__list-link
 		display: inline-block
 		vertical-align: middle
 	
+	&__mini-desc-mobile,
+	&__mobile-phone,
+	&__mobile-search,
+	&__mobile-right
+		display: none
+
+	// Top line
 	&__desc-mini, &__message 
 		font-weight: bold 
 		text-transform: uppercase 
@@ -17,9 +64,228 @@
 	&__desc-mini 
 		font-size: 14px
 
- 
 	&__top-line
 		padding-left: 135px
+		padding-right: 13px
+		padding-bottom: 20px
+
 	&__top-line-right
 		float: right
+	
+	&__location-list
+		position: relative
+
+	&__location-dropdown
+		position: absolute
+		bottom:	0
+		left: -15px
+		width: 220px
+		transform: translate(0, 100%)
+		background-color: #e34f07
+		list-style: none
+		margin: 0
+		z-index: 1
+		padding: 0
+		visibility: hidden
+		transition: all .25s
+		opacity: 0
+		
+		&.active
+			visibility: visible
+			opacity: 1
+
+
+		&-link
+			color: #fff
+		
+		&-item
+			padding: 5px 5px 5px 15px
+			transition: all .25s
+
+		&-item:hover
+			background-color: #ca4a0b	
+
+		&-link:hover
+			color: #fff
+			text-decoration: none
+
+
+
+
+	&__location-list
+		margin: 0
+		padding: 0
+		list-style: none
+
+
+
+	&__location-list__item
+		position: relative
+
+	&__location-link
+		font-weight: light
+		position: relative
+		color: #fff
+
+		&:hover 
+			text-decoration: none
+			color: #fff
+
+		&:after, &:before 
+			content: ''
+			position: absolute
+
+		&:after 
+			width: 100%
+			height: 2px
+			left: 0
+			bottom: -2px
+			background-color: #c05826
+		
+		// Arrow
+		&:before
+			top: 50%
+			left: -8px
+			transform: translate(-100%, -1px)
+			border: 6.5px solid transparent
+			border-top: 7px solid #c05826
+			display: block
+			width: 0
+			height: 0
+
+	&__phone
+		font-weight: 300
+		font-size: 20px
+		color: #fff
+		margin: 0 50px 0 28px
+		text-decoration: none
+
+		&:hover
+			text-decoration: none 
+			color: #fff
+	
+	&__message
+		text-decoration: underline
+		font-size: 12px 
+		color: #fff
+		
+
+		&:hover 
+			text-decoration: none
+			color: #fff
+
+	
+	// Bottom line
+	&__bottom-line
+		box-sizing: border-box
+		background-color: rgba(#000, 0.7)
+		height: 58px
+		position: relative
+		border-radius: 5px
+		margin-left: auto
+		padding-right: 10px
+
+	&__logo
+		position: absolute
+		top: 50%
+		left: -6px
+		transform: translate(0, -50%)
+		text-decoration: none
+		
+		&:hover
+			text-decoration: none
+	
+	&__logo-ill
+		transform: translate(0, -5px)
+
+	&__logo-word
+		margin-left: 12px
  
+
+	&__nav
+		display: inline-block
+		float: right
+
+	&__list
+		margin: 0
+		padding: 0
+	
+
+	&__list-link
+		padding: 0 28px	
+		line-height: 58px
+		color: #fff
+		transition: all .25s
+		font-weight: bold
+
+		&:hover
+			text-decoration: none
+			color: #e34f07
+
+@media screen and (max-width: 1366px)
+	
+	.main-header
+		padding: 0
+		border-top: 2px solid #e3e3e4
+		background-color: #fff
+		border-bottom: 1px solid red
+		
+		&__mobile
+			display: inline-block
+			margin-right: 32px
+
+		&__top-line 
+			display: none 
+		
+		&__bottom-line
+			border-top: 2px solid e3e3e4
+			position: static
+			max-width: 100%
+			height: 65px
+			max-height: 65px
+			background-color: transparent
+
+		&__nav
+			position: absolute
+			background-color: rgba(#000, 0.7)		
+			height: 100vh
+			width: 100vw
+			left: 0
+			top: 0
+			visibility: hidden
+
+		&__list-item
+			display: block
+
+		&__list-link
+			font-size: 20px
+
+		&__logo
+			position: static
+			height: 60px
+			display: inline-block
+			transform: translate(0, 0)
+
+		&__logo-ill
+			height: 65px
+			margin-top: 6px
+
+		&__logo-word
+			height: 25px
+
+		&__mini-desc-mobile,
+		&__mobile-phone,
+		&__mobile-search,
+		&__mobile-right
+			display: inline-block
+			
+		&__mini-desc-mobile
+			color: #000
+			
+		&__mobile-right 
+			float: right
+			margin-top: 20px
+
+		&__mobile-search
+			cursor: pointer
+			margin-left: 30px
