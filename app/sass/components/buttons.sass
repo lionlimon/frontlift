@@ -1,0 +1,55 @@
+.button
+	border: 1px solid #e34f07
+	background-color: #e34f07
+	border-radius: 5px
+	font-weight: bold
+	font-size: 16px
+	color: white
+	text-transform: uppercase
+	padding: 15px 28px
+	letter-spacing: 0.6px
+	cursor: pointer
+	transition-duration: .4s
+	&:hover
+		background-color: transparent
+		color: #e34f07
+	&:active, &:focus, &:hover
+		outline: none
+
+	&_load
+		text-transform: none
+		position: relative
+		padding-right: 50px
+		.st0
+				fill: white
+		&:hover
+			.st0
+				fill: #e34f07
+			svg
+				fill: #e34f07
+		svg
+			position: absolute
+			right: 0
+			max-width: 30px
+
+	&_transparent
+		background-color: transparent
+		color: #e34f07
+		text-transform: none
+		padding-right: 17px
+		svg
+			margin-left: 50px
+			max-width: 30px
+			display: inline-block
+		&:hover
+			background-color: #e34f07
+			color: white
+			.st0
+				fill: white
+a.button
+	padding: 16px 28px 17px 28px
+	white-space: nowrap
+	&:hover
+		text-decoration: none
+	&_transparent
+		padding-right: 17px
