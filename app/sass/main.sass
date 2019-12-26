@@ -1,0 +1,40 @@
+@import "vars"
+@import "fonts"
+@import "libs"
+
+
+
+// Container 
+.s-container 
+	max-width: 1340px
+	padding: 0 15px
+	margin: 0 auto
+
+body 
+	color: #000
+	font-weight: 400
+	font-family: $default-font
+
+.main-header
+	color: #fff
+
+	&__desc-mini,
+	&__top-line-right,
+	&__phone,
+	&__message, 
+	&__location 
+		display: inline-block
+		vertical-align: middle
+	
+	&__desc-mini, &__message 
+		font-weight: bold 
+ 
+	&__top-line-right
+		padding-left: 135px
+		float: right
+
+
+
+
+
+@import "media" // Always at the end
