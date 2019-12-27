@@ -20,7 +20,7 @@
 	width: 18px
 	height: 16px
 	position: relative
-
+	
 	cursor: pointer
 	display: inline-block
 	
@@ -66,6 +66,11 @@
 .main-header 
 	color: #fff
 	padding-top: 30px
+	position: absolute
+	top: 0
+	z-index: 999
+	left: 0
+	width: 100%
 	
 	&__mobile
 		display: none
@@ -261,7 +266,8 @@
 		padding: 0
 		border-top: 2px solid #e3e3e4
 		background-color: #fff
-		
+		position: static
+
 		&__mobile
 			display: inline-block
 			margin-right: 28px
@@ -281,6 +287,7 @@
 
 		&__nav
 			padding-left: 0
+			z-index: 1
 			position: absolute
 			background-color: rgba(#000, 0.8)		
 			height: 100vh
@@ -297,6 +304,7 @@
 				opacity: 1
 
 		&__list 
+			
 			max-width: 325px
 			width: 100%
 			padding-top: 85px
@@ -322,7 +330,7 @@
 			color: #000
 
 		&__logo
-			z-index: 1
+			z-index: 99
 			position: relative
 			top: auto
 			left: auto
