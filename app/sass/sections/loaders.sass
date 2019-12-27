@@ -10,11 +10,11 @@
 	&__desc
 		max-width: 90%
 	&-item
-		min-height: 450px
 		background-image: url(../img/load-bg-1.png)
 		background-repeat: no-repeat
 		background-position: top right
-		margin-bottom: 20px
+		background-size: cover
+		margin-bottom: 40px
 		&:nth-child(2n)
 			background-image: url(../img/load-bg-2.png)
 			background-position: top left
@@ -34,7 +34,7 @@
 			align-items: center
 		&__info
 			width: 58%
-			padding-top: 60px
+			padding-top: 40px
 			padding-bottom: 47px
 			padding-left: 80px
 		&__complect
@@ -53,6 +53,60 @@
 			margin-bottom: 15px
 			display: block
 		&__title
+			margin-bottom: 20px
+			font-size: 27px
 			b
 				color: #eb5220
 				text-transform: uppercase
+
+@media screen and ( max-width: 1366px )
+	.loaders
+		&-item
+			background-image: url(../img/load-bg-tablet-1.png)
+			&:nth-child(2n)
+				background-image: url(../img/load-bg-tablet-2.png)
+			&:nth-child(3n)
+				background-image: none
+			&__img-block
+				width: 53%
+			&__info
+				width: 47%
+				padding-left: 15px
+				padding-top: 40px
+			&__desc
+				font-size: 16px
+				line-height: 24px
+
+@media screen and ( max-width: 779px )
+	.loaders
+		&__title-block
+			margin-left: 0
+			width: 100%
+			margin-bottom: 80px
+		&__title
+			font-size: 30px
+			line-height: 36px
+			max-width: 100%
+		&__desc
+			max-width: 100%
+		&-container
+			padding-left: 21px
+			padding-right: 21px
+		&-item
+			background-position: top left -260px
+			&:nth-child(2n)
+				background-position: top right 90px
+			&:nth-child(3n)
+				background-image: url(../img/load-bg-tablet-1.png)
+				background-position: top left 135px
+			&__container
+				display: block
+			&__img-block
+				width: 100%
+			&__info
+				width: 100%
+				padding-left: 0
+				padding-top: 40px
+			&__desc
+				font-size: 16px
+				line-height: 24px
