@@ -37,7 +37,7 @@ gulp.task('styles', function() {
 gulp.task('scripts', function() {
 	return gulp.src([
 		'app/libs/jquery/dist/jquery.min.js',
-		//'app/libs/owl.carousel/dist/owl.carousel.min.js',
+		'app/libs/owlcarousel/dist/owl.carousel.min.js',
 		'app/js/common.js', // Always at the end
 		])
 	.pipe(concat('scripts.min.js'))
@@ -70,9 +70,9 @@ gulp.task('rsync', function() {
 
 
 
-	gulp.task('watch', function() {
-		gulp.watch('app/sass/**/*.sass', gulp.parallel('styles'));
-		gulp.watch(['libs/**/*.js', 'app/js/common.js'], gulp.parallel('scripts'));
-		gulp.watch('app/*.html', gulp.parallel('code'))
-	});
-	gulp.task('default', gulp.parallel('styles', 'scripts', 'browser-sync', 'watch'));
+gulp.task('watch', function() {
+	gulp.watch('app/sass/**/*.sass', gulp.parallel('styles'));
+	gulp.watch(['libs/**/*.js', 'app/js/common.js'], gulp.parallel('scripts'));
+	gulp.watch('app/*.html', gulp.parallel('code'))
+});
+gulp.task('default', gulp.parallel('styles', 'scripts', 'browser-sync', 'watch'));
