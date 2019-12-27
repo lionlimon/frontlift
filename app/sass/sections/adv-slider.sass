@@ -2,6 +2,9 @@
 	text-align: center
 	padding-bottom: 120px
 	
+	&__button 
+		margin-top: 80px
+
 	&__title
 		display: block
 		margin-bottom: 50px
@@ -35,3 +38,26 @@
 			font-size: 25px
 
 
+@media screen and (max-width: 1365px)
+	.adv-slider 
+		.owl-dot
+			width: 13px
+			height: 13px
+			display: inline-block
+			border-radius: 50%
+			border: 2px solid #e34f07!important
+			margin-right: 24px
+			transition: all .25s
+			margin-top: 50px
+			
+			&.active
+				background-color: #e34f07
+
+		&__button
+			margin-top: 25px
+	
+@media screen and (max-width: 779px)
+	.adv-slider 
+		&__item-img-wrap
+			max-width: 107px
+			height: 70px
