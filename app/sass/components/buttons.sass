@@ -15,7 +15,12 @@
 		color: #e34f07
 	&:active, &:focus, &:hover
 		outline: none
-
+	&-svg
+		display: inline-block
+		width: 13px
+		&_transparent
+			display: inline-block
+			width: 11px
 	&_load
 		text-transform: none
 		position: relative
@@ -28,8 +33,6 @@
 			svg
 				fill: #e34f07
 		svg
-			position: absolute
-			right: 0
 			max-width: 30px
 
 	&_transparent
@@ -41,6 +44,8 @@
 			margin-left: 50px
 			max-width: 30px
 			display: inline-block
+		.st0
+				fill: #e34f07
 		&:hover
 			background-color: #e34f07
 			color: white
