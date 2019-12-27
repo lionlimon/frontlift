@@ -1,0 +1,92 @@
+.interactive-dino
+	&__img-wrap
+		max-width: 940px
+		position: relative
+
+	&__dots
+		position: absolute
+		top: 0
+		left: 0
+		right: 0
+		bottom: 0
+	
+	&__item
+		max-width: 530px
+		justify-content: space-between
+		align-items: center
+		display: flex
+		position: relative
+
+		&:before 
+			width: 100%
+			height: 2px
+			background-color: #f68635
+			content: ''
+			position: absolute
+			right: 0
+			top: 50%
+			z-index: 
+			transform: translate(0, -50%)
+
+	&__item-dot 
+		width: 31px 
+		border-radius: 50%
+		height: 31px
+		background-color: #e85127
+		transition: all .25s 
+		cursor: pointer
+		z-index: 2         
+		position: relative
+
+		&:before 
+			border: 5px solid #fff	
+			content: ''
+			width: 35px
+			height: 35px
+			left: 50%
+			top: 50%
+			z-index: -4
+			transform: translate(-50%, -50%)
+			position: absolute
+			border-radius: 50%
+		&:hover, &.active 
+			background-color: #f68635
+
+		
+	
+
+	&__item-info
+		max-width: 360px
+		position: relative
+		z-index: 2
+		&:before 
+			content: ''
+			border: 2px solid #f68635
+			left: 50%
+			width: 108%
+			min-height: 150px
+			background-color: #fff	
+			transform: translate(-50%, 0)
+			z-index: -1	
+			position: absolute
+			top: 19px
+
+	&__item-title
+		background-color: #fff
+		display: inline
+		padding: 0 15px
+		line-height: 1
+		font-size: 36px
+		font-weight: 300
+
+	&__item-description
+		padding: 15px
+		padding-bottom: 0
+		background-color: #fff
+		line-height: 1.8
+		font-size: 18px
+		padding-top: 4px
+		color: #6f6f6f
+
+
+

@@ -26,25 +26,27 @@ $(function() {
 	$('.js-adv-slider').owlCarousel({
 		loop: true,
 		responsive:{
-        0:{
-          items:2,
-        },
-        780:{
-          items:4,
-          center: true,
-          margin:60
-        },
-        1000:{
-          items:4,
-        },
-        1366:{
-        	items:7
-        }
-
+      0:{
+        items:2,
+      },
+      780:{
+        items:4,
+        center: true,
+        margin:60
+      },
+      1000:{
+        items:4,
+      },
+      1366:{
+      	items:7
+      }
     }
 	});
 	
+	
+
 });
+
 $(document).ready(function(){
 	var w = $(window).width();
 	if (w <= 420) {
