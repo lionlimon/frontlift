@@ -11,6 +11,8 @@ $(function() {
 
 	// Mobile menu
 	$('.js-mobile-menu-open, .js-mobile-menu-back').on('click', function(e) {
+		$('body').toggleClass('.no-scroll');
+
 		var menu = $(".js-mobile-menu");
     if (!menu.is(e.target) 
         && menu.has(e.target).length === 0) { 
