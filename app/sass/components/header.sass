@@ -1,10 +1,40 @@
+@keyframes burger-top
+
+	50% 
+		transform: translate(0, 7px)
+	
+	100%
+		transform: translate(0, 7px) rotate(45deg)
+
+@keyframes burger-bottom
+
+	50% 
+		transform: translate(0, -7px)
+	
+	100%
+		transform: translate(0, -7px) rotate(-45deg)
+
+
 //burger
 .mobile-burger 
 	width: 18px
 	height: 16px
 	position: relative
+
 	cursor: pointer
 	display: inline-block
+	
+	&.active 
+		&:after
+			animation: burger-bottom .5s forwards ease-in-out
+			bottom: 0
+		
+		.mobile-burger__inner 
+			opacity: 0
+
+		&:before 
+			animation: burger-top .5s forwards ease-in-out
+			top: 0
 
 	&__inner, &:after, &:before
 		height: 2px
@@ -13,9 +43,12 @@
 		position: absolute
 
 	&:after
+		//animation: 1s burger-bottom 1s forwards
 		bottom: 0
+		
 
 	&:before 
+		//animation: 1s burger-top 1s forwards
 		top: 0
 
 	&__inner
@@ -228,11 +261,12 @@
 		padding: 0
 		border-top: 2px solid #e3e3e4
 		background-color: #fff
-		border-bottom: 1px solid red
 		
 		&__mobile
 			display: inline-block
-			margin-right: 32px
+			margin-right: 28px
+			z-index: 99
+			transform: translate(0, 2px)
 
 		&__top-line 
 			display: none 
@@ -246,22 +280,52 @@
 			background-color: transparent
 
 		&__nav
+			padding-left: 0
 			position: absolute
-			background-color: rgba(#000, 0.7)		
+			background-color: rgba(#000, 0.8)		
 			height: 100vh
 			width: 100vw
 			left: 0
+			text-transform: uppercase
 			top: 0
 			visibility: hidden
+			opacity: 0
+			transition: all .25s
 
-		&__list-item
+			&.active
+				visibility: visible
+				opacity: 1
+
+		&__list 
+			max-width: 325px
+			width: 100%
+			padding-top: 85px
+			background-color: #fff	
+			height: 100%
+			overflow-y: scroll
+			transition: transform .4s ease-in-out
+			transform: translate(-100%, 0)
+
+			&.active
+				transform: translate(0, 0)
+
+		&__list-item 
+			border-bottom: 1px solid rgba(#fff, 0.05)
 			display: block
+			margin-bottom: 5px
+			position: relative
 
 		&__list-link
-			font-size: 20px
+			padding-left: 15px
+			font-size: 15px
+			line-height: 2
+			color: #000
 
 		&__logo
-			position: static
+			z-index: 1
+			position: relative
+			top: auto
+			left: auto
 			height: 60px
 			display: inline-block
 			transform: translate(0, 0)
@@ -272,6 +336,8 @@
 
 		&__logo-word
 			height: 25px
+			margin-left: 5px
+			margin-right: 0px
 
 		&__mini-desc-mobile,
 		&__mobile-phone,
@@ -281,7 +347,11 @@
 			
 		&__mini-desc-mobile
 			color: #000
-			
+			margin-left: 24px
+			font-size: 14px
+			font-weight: bold
+			text-transform: uppercase
+
 		&__mobile-right 
 			float: right
 			margin-top: 20px
@@ -289,3 +359,31 @@
 		&__mobile-search
 			cursor: pointer
 			margin-left: 30px
+
+@media screen and (max-width: 779px)
+	.main-header
+		&__bottom-line 
+			line-height: 65px
+		&__mobile-right
+			margin-top: 0
+		
+		&__mini-desc-mobile 
+			display: none
+
+		&__logo-ill
+			display: none
+		
+		&__logo-word
+			margin-left: 0
+
+		&__mobile
+			margin-right: 15px
+
+		&__nav
+			line-height: 1.5
+
+		&__bottom-line 
+			padding-right: 0
+
+		&__mobile-search
+			margin-left: 10px
