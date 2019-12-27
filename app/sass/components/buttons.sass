@@ -18,15 +18,18 @@
 	&-svg
 		display: inline-block
 		width: 13px
+		margin-left: 15px
 		&_transparent
 			display: inline-block
 			width: 11px
+			margin-left: 50px
 	&_load
 		text-transform: none
 		position: relative
 		padding-right: 50px
 		.st0
 				fill: white
+				transition-duration: .3s
 		&:hover
 			.st0
 				fill: #e34f07
@@ -41,11 +44,12 @@
 		text-transform: none
 		padding-right: 17px
 		svg
-			margin-left: 50px
-			max-width: 30px
+			max-width: 100%
 			display: inline-block
+			height: 11px
 		.st0
 				fill: #e34f07
+				transition-duration: .3s
 		&:hover
 			background-color: #e34f07
 			color: white
@@ -54,6 +58,7 @@
 a.button
 	padding: 16px 28px 17px 28px
 	white-space: nowrap
+	display: inline-block
 	&:hover
 		text-decoration: none
 	&_transparent

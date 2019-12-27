@@ -1,5 +1,7 @@
+.main-banner
+    height: 800px
 .new-main-page .big-banner .main-banner-dino-mobile
-    display:none
+    display: none
 
 .new-main-page .big-banner .main-banner-dino 
     width: 1582px
@@ -15,7 +17,9 @@
 .new-main-page .video iframe  
     width: 1500px  
     height: 840px  
-
+.new-main-page .video .gradient
+    background: radial-gradient(#55ddff, #0081b5)
+    
 @media (max-width:1690px) 
     .new-main-page .big-banner .main-banner-dino 
         width: 1400px     
@@ -80,4 +84,19 @@
         width: 565px
         left: -150px
     .new-main-page .big-banner .video
-        height: 236px         
+        height: 236px
+
+@media (max-width: 420px)
+    .new-main-page .big-banner .main-banner-dino-mobile
+        display: block
+        max-width: none
+        position: absolute
+        width: 100%
+    .new-main-page .big-banner .main-banner-dino 
+        display: none
+    .new-main-page .big-banner .video
+        height: auto
+    .new-main-page .video iframe  
+        width: 716px  
+        height: 404px
+        margin-left: 30%;                              
