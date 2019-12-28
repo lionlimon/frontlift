@@ -144,6 +144,12 @@ $(function () {
 			$('.feedback__title').after($('.feedback__button'));
 		}
 	})
+
+	if ($(window).width() < 768) {
+		$('.feedback-slider').after($('.feedback__button'));
+	} else if ($(window).width() >= 768) {
+		$('.feedback__title').after($('.feedback__button'));
+	}
 });
 
 $(document).ready(function () {
