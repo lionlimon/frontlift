@@ -5,7 +5,6 @@
 		text-align: center
 	&__dino-block
 		position: absolute
-		max-width: 33%
 		right: 0
 		top: 50px
 		background-image: url(../img/attachments-dino-bg.png)
@@ -13,3 +12,107 @@
 		background-repeat: no-repeat
 		background-size: contain
 		padding-bottom: 60px
+		z-index: 2
+	&-slider
+		padding-left: 75px
+		&__button
+			background: none
+			border: none
+			background-image: url(../img/attach-arrow.png)
+			height: 38px
+			width: 36px
+			position: absolute
+			top: 760px
+			left: 22px
+			cursor: pointer
+			z-index: 10
+			&:focus
+				outline: none
+		&-top
+			margin-top: 105px
+			margin-bottom: 10px
+	&-item
+		width: 180px
+		&__top
+			height: 560px
+			background-position: center
+			background-repeat: no-repeat
+			background-size: cover
+			top: 0px
+			width: 100%
+		&__img
+			height: 120px
+			width: 100%
+			background-size: contain
+			background-position: center
+			background-repeat: no-repeat
+			border: 1px solid gray
+		&__title
+			opacity: 0
+			transition-duration: .3s
+			font-size: 18px
+			line-height: 24px
+			margin-bottom: 5px
+			margin-top: 10px
+		&__desc
+			opacity: 0
+			transition-duration: .3s
+			font-size: 15px
+			line-height: 24px
+			font-weight: 300
+			display: inline-block
+		&_active
+			.attachments-item
+				&__img
+					border: 2px solid #e34f07
+				&__title
+					opacity: 1
+				&__desc
+					opacity: 1
+		&__button-block
+			height: 0
+			position: relative
+		&__button
+			border: none
+			background: none
+			background-image: url(../img/attach-arrow-next.png)
+			height: 29px
+			width: 32px
+			display: inline-block
+			line-height: 24px
+			position: absolute
+			top: -4px
+			cursor: pointer
+			&:focus
+				outline: none
+
+@media screen and ( max-width: 1366px )
+	.attachments
+		&__dino-block
+			max-width: 390px
+			right: -30px
+			padding-bottom: 165px
+			background-size: cover
+			background-position: bottom -60px left
+			padding-left: 60px
+		&-slider
+			padding-left: 0
+			&__button
+				display: none
+			&-top
+				margin-top: 25px
+		&-item
+			&__top
+				height: 402px
+
+@media screen and ( max-width: 767px )
+	.attachments
+		&__title
+			text-align: left
+			font-size: 30px
+			padding-left: 20px
+		&__dino-block
+			display: none
+		&-item
+			&__top
+				height: 402px
