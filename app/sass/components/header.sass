@@ -112,13 +112,14 @@
 	
 	&__location-list
 		position: relative
+		
 
 	&__location-dropdown
 		position: absolute
-		bottom:	0
-		left: -15px
-		width: 220px
-		transform: translate(0, 100%)
+		top: -32px
+		left: -35px
+		width: 414px
+		//transform: translate(0, 100%)
 		background-color: #e34f07
 		list-style: none
 		margin: 0
@@ -127,6 +128,7 @@
 		visibility: hidden
 		transition: all .25s
 		opacity: 0
+		padding: 55px 15px 35px 35px
 		
 		&.active
 			visibility: visible
@@ -137,8 +139,9 @@
 			color: #fff
 		
 		&-item
-			padding: 5px 5px 5px 15px
+			padding: 5px 5px 5px 0px
 			transition: all .25s
+			display: inline-block
 
 		&-item:hover
 			background-color: #ca4a0b	
@@ -147,7 +150,7 @@
 			color: #fff
 			text-decoration: none
 
-
+	
 
 
 	&__location-list
@@ -164,7 +167,7 @@
 		font-weight: light
 		position: relative
 		color: #fff
-
+		z-index: 2
 		&:hover 
 			text-decoration: none
 			color: #fff
@@ -319,7 +322,9 @@
 			color: #fff
 			background-color: rgba(#ff7300b0, .7)
 			text-decoration: none
-
+	
+	&__list-mobile-contact-item
+		display: none
 
 @media screen and (max-width: 1365px)
 	
@@ -363,7 +368,8 @@
 			top: 66px
 			visibility: hidden
 			opacity: 0
-			transition: transform .25s
+			transition: transform .25s, opacity .25s
+			padding-bottom: 65px
 
 			&.active
 				visibility: visible
@@ -385,7 +391,13 @@
 			display: block
 			position: relative
 
-		&__list-link
+			&_hidden
+				display: none
+
+
+		&__list-link, 
+		&__mobile-contacts-phone,
+		&__mobile-contacts-message
 			padding: 23px 0 23px 65px
 			width: 100%	
 			font-size: 18px
@@ -393,12 +405,30 @@
 			line-height: 1
 			text-transform: none
 			color: #fff
+
+			&:hover
+				color: #fff
 		
+		&__mobile-contacts-phone
+			font-size: 22px
+			display: inline-block
+			padding: 10px 0 10px 65px
+			margin-bottom: 10px
+			font-weight: 400
+			margin-top: 35px
+
+		&__mobile-contacts-message
+			text-transform: uppercase
+			font-size: 16px
+			font-weight: bold
+			display: inline-block
+			padding: 10px 0 10px 65px
+
 		&__list-parent
 			&:after
-				left: 30px
-				right: auto
-				transform: translate(0, 0)
+				right: 20px
+				top: 36px
+				transform: translate(0, 0) rotate(-90deg)
 
 		&__logo
 			z-index: 99
@@ -440,6 +470,43 @@
 			margin-left: 30px
 			margin-right: 15px
 
+				
+
+		&__list-parent
+			&.active .main-header__list-parent-link
+				color: rgba(#ffffff, 0.8)
+	
+		&__second-list
+			opacity: 1
+			position: static
+			background-color: transparent
+			width: 100%
+			border-top: none
+
+			display: none
+
+			&.active 
+				display: block
+
+			
+		&__list-parent.active
+			&:after 
+				left: 30px
+
+				top: 26px
+				transform: translate(0, 0) rotate(90deg)
+
+		&__second-list-link
+			padding-left: 65px
+			line-height: 1
+			border-top: 1px solid rgba(#fff, 0.1)
+			padding: 23px 0 23px 65px
+			text-transform: none
+			font-size: 18px
+
+		&__list-mobile-contact-item
+			display: block
+
 @media screen and (max-width: 779px)
 	.main-header
 		&__bottom-line 
@@ -466,8 +533,12 @@
 		&__bottom-line 
 			padding-right: 0
 
-
+		&__mobile-search
+			margin-left: 20px
 
 		
-		&__list-parent:after
-			left: 28px
+		// &__list-parent:after
+		// 	left: 28px
+		// 	top: 30px
+		
+		
