@@ -109,7 +109,7 @@ $(function () {
 			0: {
 				center: true,
 			},
-			768: {
+			779: {
 				autoWidth: true,
 				center: true,
 			}
@@ -150,6 +150,15 @@ $(function () {
 	} else if ($(window).width() >= 768) {
 		$('.feedback__title').after($('.feedback__button'));
 	}
+
+	// Gallery slider
+	var gallery = $('.gallery-carousel');
+	gallery.owlCarousel({
+		loop: true,
+		items: 7,
+		smartSpeed: 400,
+		autoWidth: true,
+	});
 });
 
 $(document).ready(function () {

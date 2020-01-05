@@ -1,0 +1,46 @@
+.gallery
+	padding-top: 120px
+	padding-bottom: 120px
+	&__title-block
+		display: flex
+		justify-content: center
+		flex-direction: row
+		margin-bottom: 50px
+	&__desc
+		color: #606060
+		font-size: 18px
+		line-height: 28px
+		font-weight: 300
+	&__title-right
+		margin-left: 30px
+	&__button
+		margin-top: 12px
+		span
+			margin-left: 100px
+	&-item
+		width: 320px
+		height: 320px
+		overflow: hidden
+		&__link
+			width: 320px
+			height: 320px
+			position: relative
+			display: block
+			background-repeat: no-repeat
+			background-position: center
+			background-size: cover
+			transition-duration: .4s
+			&:hover
+				transform: scale(1.2)
+				.gallery-item__icon
+					fill: #e34f07
+		&__icon
+			width: 71px
+			position: absolute
+			top: 0
+			bottom: 0
+			left: 0
+			right: 0
+			margin: auto
+			fill: white
+			transition-duration: .4s
