@@ -1,19 +1,43 @@
 $(function () {
 
 	// Dropdown menu
-	$('.js-dropdown-open, .js-dropdown').hover(function (e) {
+	$('.js-dropdown-open').on('click', function (e) {
 		$(this).siblings('.js-dropdown').toggleClass('active');
 	});
 
-	$('.js-dropdown').hover(function (e) {
-		$(this).toggleClass('active');
-	});
 
 	// Header dropdown menu (2lvl)
-	$('.main-header__list-parent').hover(function() {
-		$(this).toggleClass('active');
-		$(this).find('.main-header__second-list').toggleClass('active');
+	$('.main-header__list-parent').hover(function() { // For desktop
+		if (window.innerWidth > 1365) {
+			$(this).toggleClass('active');
+			$(this).find('.main-header__second-list').toggleClass('active');
+		}
+			
 	});
+	
+	$('.main-header__list-parent').on('click', function(e) { // For mobile
+		if (window.innerWidth <= 1365) {
+			e.preventDefault();
+			
+			if ( $(this).hasClass('active') ) {
+				$('.main-header__list-item').each(function() {
+					if ( !$(this).hasClass('active') ) 
+						$(this).toggleClass('main-header__list-item_hidden')
+				});
+
+				$(this).removeClass('active');
+				$(this).find('.main-header__second-list').removeClass('active');
+			} else {
+				$(this).addClass('active');
+				$(this).find('.main-header__second-list').addClass('active');
+
+				$('.main-header__list-item').each(function() {
+					if ( !$(this).hasClass('active') ) 
+						$(this).toggleClass('main-header__list-item_hidden')
+				});
+			}	
+		}
+	}); 
 
 
 	// Mobile menu
