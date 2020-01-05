@@ -15,7 +15,7 @@
 		transform: translate(0, -7px) rotate(-45deg)
 
 
-//burger
+// burger
 .mobile-burger 
 	width: 18px
 	height: 16px
@@ -260,6 +260,67 @@
 			text-decoration: none
 			color: #e34f07
 
+	&__list-parent-link 
+		&:hover
+			color: #fff
+
+	&__list-parent 
+		position: relative
+		
+		&:hover
+		 color: #fff
+
+		&:after 
+			content: ''
+			top: 50%
+			position: absolute
+			right: 0
+			transform: translate(-10px, 0px)
+			border: 6.0px solid transparent
+			border-top: 5px solid #fff
+			display: block
+			width: 1px
+			height: 1px
+			transform-origin: 2px 2px
+
+		&.active
+			&:after 
+				transform: rotate(180deg)
+
+	&__second-list
+		position: absolute
+		border-top: 1px solid grey
+		top: 100%
+		left: 0
+		width: 290px
+		list-style: none
+		margin: 0
+		padding: 0
+		background-color: rgba(#000, 0.7)
+		transform: translate(0, -5px)
+		opacity: 0
+		transition: all .25s
+
+		&.active 
+			opacity: 1
+			transform: translate(0, 0)
+
+	&__second-list-link
+		color: #fff	
+		padding: 20px 0 20px 28px
+		display: inline-block
+		transition: all .25s 
+		width: 100%
+		line-height: 1
+		font-size: 16px
+
+
+		&:hover
+			color: #fff
+			background-color: rgba(#ff7300b0, .7)
+			text-decoration: none
+
+
 @media screen and (max-width: 1365px)
 	
 	.main-header
@@ -270,8 +331,9 @@
 
 		&__mobile
 			display: inline-block
-			margin-right: 28px
+			margin-right: 20px
 			z-index: 99
+			margin-left: 25px
 			transform: translate(0, 2px)
 
 		&__top-line 
@@ -279,55 +341,64 @@
 		
 		&__bottom-line
 			border-top: 2px solid e3e3e4
-			position: static
-			max-width: 100%
+			width: 100%
 			height: 65px
+			position: static
+			background-color: #fff	 
 			max-height: 65px
 			background-color: transparent
+
+		.s-container
+			padding: 0	
 
 		&__nav
 			padding-left: 0
 			z-index: 1
 			position: absolute
-			background-color: rgba(#000, 0.8)		
+			background-color: rgba(#232323cc, 0.95)		
 			height: 100vh
 			width: 100vw
 			left: 0
 			text-transform: uppercase
-			top: 0
+			top: 66px
 			visibility: hidden
 			opacity: 0
-			transition: all .25s
+			transition: transform .25s
 
 			&.active
 				visibility: visible
 				opacity: 1
 
+
 		&__list 
-			
-			max-width: 325px
 			width: 100%
-			padding-top: 85px
-			background-color: #fff	
 			height: 100%
-			overflow-y: scroll
+			overflow-x: hidden
 			transition: transform .4s ease-in-out
-			transform: translate(-100%, 0)
+			transform: translate(0, 10px)
 
 			&.active
 				transform: translate(0, 0)
 
 		&__list-item 
-			border-bottom: 1px solid rgba(#fff, 0.05)
+			border-bottom: 1px solid rgba(#fff, 0.1)
 			display: block
-			margin-bottom: 5px
 			position: relative
 
 		&__list-link
-			padding-left: 15px
-			font-size: 15px
-			line-height: 2
-			color: #000
+			padding: 23px 0 23px 65px
+			width: 100%	
+			font-size: 18px
+			font-weight: 400
+			line-height: 1
+			text-transform: none
+			color: #fff
+		
+		&__list-parent
+			&:after
+				left: 30px
+				right: auto
+				transform: translate(0, 0)
 
 		&__logo
 			z-index: 99
@@ -340,7 +411,7 @@
 
 		&__logo-ill
 			height: 65px
-			margin-top: 6px
+			margin-top: 3px
 
 		&__logo-word
 			height: 25px
@@ -367,6 +438,7 @@
 		&__mobile-search
 			cursor: pointer
 			margin-left: 30px
+			margin-right: 15px
 
 @media screen and (max-width: 779px)
 	.main-header
@@ -385,7 +457,8 @@
 			margin-left: 0
 
 		&__mobile
-			margin-right: 15px
+			
+			margin-left: 25px
 
 		&__nav
 			line-height: 1.5
@@ -393,5 +466,8 @@
 		&__bottom-line 
 			padding-right: 0
 
-		&__mobile-search
-			margin-left: 10px
+
+
+		
+		&__list-parent:after
+			left: 28px
