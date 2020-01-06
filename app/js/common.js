@@ -52,7 +52,7 @@ $(function () {
 			if ( $(this).hasClass('active') ) {
 				$('.main-header__list-item').each(function() {
 					if ( !$(this).hasClass('active') ) 
-						$(this).toggleClass('main-header__list-item_hidden')
+						$(this).toggleClass('main-header__list-item_hidden');
 				});
 
 				$(this).removeClass('active');
@@ -63,7 +63,7 @@ $(function () {
 
 				$('.main-header__list-item').each(function() {
 					if ( !$(this).hasClass('active') ) 
-						$(this).toggleClass('main-header__list-item_hidden')
+						$(this).toggleClass('main-header__list-item_hidden');
 				});
 			}	
 		}
