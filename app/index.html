@@ -37,16 +37,34 @@
 				<div class="main-header__top-line-right">
 					<ul class="main-header__location-list">
 						<li class="main-header__location-list-item">
-							<a class="main-header__location-link js-dropdown-open" href="#">г. Пермь</a>
-							<ul class="main-header__location-dropdown js-dropdown">
-								<li class="main-header__location-dropdown-item">
-									<a href="#" class="main-header__location-dropdown-link">г. Краснокамск</a>
-								</li>
-								<li class="main-header__location-dropdown-item">
-									<a href="#" class="main-header__location-dropdown-link">г. Воронеж</a>
-								</li>
+							<a class="main-header__location-link js-dropdown-open" href="#">г. Пермь</a>		
+							
+							<div class="main-header__location-dropdown js-dropdown">
+								
+								<img class="main-header__location-dropdown-close js-dropdown-close" src="img/close.png" alt="">
 
-							</ul>
+								<form class="main-header__location-search search-form">
+									<input type="text" class="search-form__input" placeholder="Введите название города">
+									<button class="search-form__button"><img class="search-form__img" src="img/search.png" alt=""></button>
+								</form>				
+
+								<ul class="main-header__location-list">
+									<li class="main-header__location-dropdown-item">
+										<a href="#" class="main-header__location-dropdown-link">г. Челябинск</a>
+									</li>
+									<li class="main-header__location-dropdown-item">
+										<a href="#" class="main-header__location-dropdown-link">г. Магнитогорск</a>
+									</li>
+									<li class="main-header__location-dropdown-item">
+										<a href="#" class="main-header__location-dropdown-link">г. Екатеринбург</a>
+									</li>
+									<li class="main-header__location-dropdown-item">
+										<a href="#" class="main-header__location-dropdown-link">г. Москва</a>
+									</li>
+
+								</ul>
+
+							</div>
 						</li>
 					</ul>
 
@@ -99,8 +117,14 @@
 						<!-- /Contacts	 -->
 
 					</ul>
+					
+					<!-- <div class="main-header__bottom-button">
+						<img src="img/user-white.png" alt="">
+					</div> -->
 
-
+					<div class="main-header__bottom-button">
+						<img src="img/search-white.png" alt="">
+					</div>
 				</nav>
 				
 				<div class="main-header__mobile-right">
