@@ -251,29 +251,6 @@ $(window).resize();
 
 
 // Validation
-var formPhone = '';
-var formEmail = '';
-var formPhoneStatus = false;
-var formEmailStatus = false;
-
-$(document).on('keyup', '.js-form__phone', function() {
-	var num = this.value.replace( /\D/g, '' ).split( /(?=.)/ ), i = num.length - 1;
-	if ( 0 < i ) num.unshift( '+' );
-	if ( 1 <= i ) num.splice( 2, 0, ' (' );
-	if ( 4 <= i ) num.splice( 6, 0, ') ' );
-	if ( 7 <= i ) num.splice( 10, 0, '-' );
-	if ( 9 <= i ) num.splice( 13, 0, '-' );
-	this.value = num.splice(0, 16).join( '' );
-})
-
-$(document).on('keyup', '.js-form__email', function() {
-	this.value = this.value.replace( /[^\,A-Za-z0-9@._-]+/g, '' );
-})
-
-$(document).on('keyup', '.js-form__name', function() {
-	this.value = this.value.replace( /[^\,A-Za-zА-Яа-я0-9 ]+/g, '' );
-})
-
 function setStatusClass(status, elem) {
 	switch (status) {
 		case 'correct':
@@ -294,64 +271,46 @@ function setStatusClass(status, elem) {
 	}
 }
 
-function phoneValidate(elem) {
-	if (/[^0-9-() ]+/.test(elem.value) && elem.value.length == 18) {
-		setStatusClass('correct', elem);
-		if(elem.style.color != 'red') {
-			formPhone = elem.value;
+function validate(elem) {
+	if (elem.type == 'email') {
+		if (/^[.0-9a-zA-Zа-яА-Я_-]+@[0-9a-zA-Zа-яА-Я_-]+?\.[a-zA-Zа-яА-Я]{2,}$/.test(elem.value) && elem.value.length <= 36) {
+			setStatusClass('correct', elem);
+			return 'correct';
 		}
-		formPhoneStatus = true;
-	} else if (elem.value.length == 0) {
+	} else {
+		if (/[^0-9-() ]+/.test(elem.value) && elem.value.length == 18) {
+			setStatusClass('correct', elem);
+			return 'correct';
+		}
+	}
+	if (elem.value.length == 0 || elem.dataset.value.length == 0) {
 		setStatusClass('empty', elem);
-		if(elem.style.color != 'red') {
-			formPhone = elem.value;
-		}
-		elem.value = "Поле обязательно для заполнения!";
-		elem.style.color = "red";
-		formPhoneStatus = false;
+		return 'empty';
 	} else {
 		setStatusClass('error', elem);
-		if(elem.style.color != 'red') {
-			formPhone = elem.value;
-		}
-		elem.value = "Неверно заполнено! Пример: +7 (111) 111-11-11";
-		elem.style.color = "red";
-		formPhoneStatus = false;
+		return 'error';
 	}
 }
 
-function emailValidate(elem) {
-	if (/\S+@\S+\.\S+/.test(elem.value) && elem.value.length <= 36) {
-		setStatusClass('correct', elem);
-		if(elem.style.color != 'red') {
-			formEmail = elem.value;
+function fieldChange(elem) {
+	var status = validate(elem);
+	if (status == 'error' || status == 'empty') {
+		if (elem.style.color != 'red') {
+			elem.dataset.value = elem.value;
+			elem.style.color = "red";
 		}
-		formEmailStatus = true;
-	} else if (elem.value.length == 0) {
-		setStatusClass('empty', elem);
-		if(elem.style.color != 'red') {
-			formEmail = elem.value;
+		if (elem.type != 'email') {
+			elem.value = status == 'error' ? "Неверно заполнено! Пример: +7 (111) 111-11-11" : "Поле обязательно для заполнения!";
+		} else {
+			elem.value = status == 'error' ? "Неверно заполнено! Пример: name@mail.com" : "Поле обязательно для заполнения!";
 		}
-		elem.value = "Поле обязательно для заполнения!";
-		elem.style.color = "red";
-		formEmailStatus = false;
-	} else {
-		setStatusClass('error', elem);
-		if(elem.style.color != 'red') {
-			formEmail = elem.value;
-		}
-		elem.value = "Неверно заполнено! Пример: name@mail.com";
-		elem.style.color = "red";
-		formEmailStatus = false;
+	} else if (status == 'correct' || elem.style.color != 'red') {
+		elem.dataset.value = elem.value;
 	}
 }
 
-$('.js-form__email').change(function() {
-	emailValidate(this);
-})
-
-$('.js-form__phone').change(function() {
-	phoneValidate(this);
+$('.js-form__email, .js-form__phone, .js-form-sub__input').change(function() {
+	fieldChange(this);
 })
 
 $('.js-form__name').change(function() {
@@ -360,27 +319,53 @@ $('.js-form__name').change(function() {
 	}
 })
 
-$(document).on('click', '.js-form__email', function() {
+$(document).on('click focus', '.js-form__email, .js-form-sub__input, .js-form__phone', function() {
 	if (this.classList.contains('form__input_error') || this.classList.contains('form__input_empty')) {
-		this.value = formEmail;
+		this.value = this.dataset.value;
 		this.style.color = "black";
 	}
 })
 
-$(document).on('click', '.js-form__phone', function() {
-	if (this.classList.contains('form__input_error') || this.classList.contains('form__input_empty')) {
-		this.value = formPhone;
-		this.style.color = "black";
-	}
+$(document).on('keyup', '.js-form__phone', function() {
+	var num = this.value.replace( /\D/g, '' ).split( /(?=.)/ ), i = num.length - 1;
+	if ( 0 < i ) num.unshift( '+' );
+	if ( 1 <= i ) num.splice( 2, 0, ' (' );
+	if ( 4 <= i ) num.splice( 6, 0, ') ' );
+	if ( 7 <= i ) num.splice( 10, 0, '-' );
+	if ( 9 <= i ) num.splice( 13, 0, '-' );
+	this.value = num.splice(0, 16).join( '' );
+	this.dataset.value = this.value;
+})
+
+$(document).on('keyup', '.js-form__email, .js-form-sub__input', function() {
+	this.value = this.value.replace( /[^\,A-Za-z0-9а-яА-Я@._-]+/g, '' );
+	this.dataset.value = this.value;
+})
+
+$(document).on('keyup', '.js-form__name', function() {
+	this.value = this.value.replace( /[^\,A-Za-zА-Яа-я0-9 ]+/g, '' );
 })
 
 $('.form-form').on('submit', function (e){
 	e.preventDefault();
-	phoneValidate(document.querySelector('.js-form__phone'));
-	emailValidate(document.querySelector('.js-form__email'));
-	if (formEmailStatus == true && formPhoneStatus == true) {
+	var email = document.querySelector('.js-form__email');
+	var phone = document.querySelector('.js-form__phone');
+	var phoneStatus = validate(phone);
+	var emailStatus = validate(email);
+	fieldChange(email);
+	fieldChange(phone);
+	if (phoneStatus == 'correct' && emailStatus == 'correct') {
 		alert('Отправляем');
 	}
 })
 
+$('.form-sub').on('submit', function (e){
+	e.preventDefault();
+	var email = document.querySelector('.js-form-sub__input');
+	var emailStatus = validate(email);
+	fieldChange(email);
+	if (emailStatus == 'correct') {
+		alert('Отправляем');
+	}
+})
 // Validation END

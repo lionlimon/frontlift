@@ -7,6 +7,7 @@
 		background-position: center top 30px
 		background-repeat: no-repeat
 		height: 720px
+		margin-bottom: 130px
 	&-block
 		background-image: url(../img/form-bg.png)
 		background-repeat: no-repeat
@@ -23,13 +24,6 @@
 		flex-direction: column
 		margin-top: 40px
 	&__input, &__textarea
-		background: none
-		border: 1px solid #d9d9d9
-		border-radius: 5px
-		box-shadow: inset 0px 2px 9px 0px rgba(41, 41, 41, 0.17)
-		background-color: #fff
-		padding: 12px 15px
-		outline: none
 		width: 580px
 		margin: 0 auto
 		margin-bottom: 12px
@@ -42,13 +36,16 @@
 			background-image: url(../img/warning.png)
 			background-position: right 15px top 11px
 			background-repeat: no-repeat
-		&::placeholder
-			color: #7a7a7a
-			font-size: 18px
-			font-weight: 300
 	&__textarea
 		height: 200px
 		resize: none
+		background: none
+		border: 1px solid #d9d9d9
+		border-radius: 5px
+		box-shadow: inset 0px 2px 9px 0px rgba(41, 41, 41, 0.17)
+		background-color: #fff
+		padding: 12px 15px
+		outline: none
 		&::placeholder
 			color: #7a7a7a
 			font-size: 18px
@@ -72,6 +69,18 @@
 		a
 			color: white
 			text-decoration: underline
+	&-sub
+		display: flex
+		&__button
+			text-align: center
+			max-height: 54px
+			width: calc(25% - 9px)
+		&__input
+			width: 35%
+			max-height: 54px
+			margin-right: 9px
+		&__title
+			width: 40%
 		
 @media screen and ( max-width: 1365px )
 	.form

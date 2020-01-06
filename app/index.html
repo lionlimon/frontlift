@@ -736,15 +736,22 @@
 		<div class="form-container">
 			<div class="form-block s-container">
 				<span class="form-block__title">Мы подберем вам погрузчик, проконсультируем, предложим лизинг и многое другое.</span>
-				<form action="" class="form-form">
-					<input type="text" placeholder="Ваше имя" class="form__input js-form__name" maxlength="36">
-					<input type="text" placeholder="Электронная почта" class="form__input js-form__email" maxlength="36" value="">
-					<input type="phone" placeholder="Телефон" class="form__input js-form__phone" maxlength="18" value="">
+				<form action="" class="form-form" novalidate>
+					<input type="text" placeholder="Ваше имя" class="input form__input js-form__name" maxlength="36">
+					<input type="email" placeholder="Электронная почта" class="input form__input js-form__email" maxlength="36" value="" data-value="">
+					<input type="text" placeholder="Телефон" class="input form__input js-form__phone" maxlength="18" value="" data-value="">
 					<textarea name="" id="" cols="30" rows="10" class="form__textarea" placeholder="Напишите сообщение"></textarea>
 					<input type="submit" value="Отправить" class="form__button button">
 					<span class="form__data">Нажимая на кнопку "Отправить", я даю согласие на обработку своих <a href="">персональных данных</a></span>
 				</form>
 			</div>
+		</div>
+		<div class="s-container">
+			<form action="" class="form-sub" novalidate>
+				<p class="form-sub__title">В наших рассылках: подробно расскажем в своих рассылках обо всех новостях, новинках и акциях:</p>
+				<input type="text" class="form-sub__input input js-form-sub__input" placeholder="Электронная почта">
+				<input type="submit" class="form-sub__button button" value="Подписаться">
+			</form>
 		</div>
 	</section>
 
