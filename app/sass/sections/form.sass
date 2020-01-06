@@ -28,6 +28,7 @@
 		margin: 0 auto
 		margin-bottom: 12px
 	&__input
+		padding-right: 55px
 		&_correct
 			background-image: url(../img/correct-symbol.png)
 			background-position: right 15px top 15px
@@ -71,21 +72,45 @@
 			text-decoration: underline
 	&-sub
 		display: flex
+		align-items: center
+		margin-bottom: 90px
 		&__button
 			text-align: center
-			max-height: 54px
+			height: 54px
 			width: calc(25% - 9px)
 		&__input
-			width: 35%
-			max-height: 54px
-			margin-right: 9px
-		&__title
 			width: 40%
-		
+			height: 54px
+			margin-right: 9px
+			padding-right: 55px
+		&__title
+			width: 35%
+			font-size: 16px
+			line-height: 24px
+			margin-bottom: 0
+			color: #424242
+			margin-right: 9px
+	&-bottom
+		display: flex
+		&__img
+			&-block
+				width: 80%
+				margin-right: 22px
+				position: relative
+		&__text
+			font-size: 16px
+			line-height: 24px
+			color: #424242
+			margin-top: -5px
+		&__icon
+			margin-top: 5px
+			margin-right: 20px
+
 @media screen and ( max-width: 1365px )
 	.form
 		&-container
 			background: none
+			margin-bottom: 88px
 		&__title
 			margin-right: 0
 		&-block
@@ -97,9 +122,31 @@
 				text-align: center
 		&__data
 			margin-right: 0
+		&-sub
+			flex-wrap: wrap
+			margin-bottom: 44px
+			&__title
+				width: 70%
+				margin-bottom: 20px
+			&__input
+				width: 70%
+			&__button
+				width: calc(30% - 9px)
+		&-bottom
+			margin-bottom: 36px
+			&__img
+				&-block
+					width: 70%
+					margin-right: 12px
+			&__info
+				width: 30%
+			&__text
+				margin-bottom: 0
 
 @media screen and ( max-width: 779px )
 	.form
+		&-container
+			margin-bottom: 46px
 		&-block
 			padding-top: 40px
 			&__title
@@ -110,3 +157,26 @@
 			margin-top: 20px
 		&__data
 			text-align: left
+		&-sub
+			flex-wrap: wrap
+			margin-bottom: 30px
+			&__title
+				width: 100%
+			&__input
+				width: 100%
+				margin-right: 0
+				margin-bottom: 4px
+			&__button
+				width: 100%
+		&-bottom
+			margin-bottom: 36px
+			flex-wrap: wrap
+			&__img
+				&-block
+					width: 100%
+					margin-right: 0
+					margin-bottom: 10px
+			&__info
+				width: 100%
+			&__text
+				margin-bottom: 0
