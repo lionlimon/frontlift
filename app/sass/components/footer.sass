@@ -1,0 +1,101 @@
+.footer
+	background-color: #333333
+	padding-top: 40px
+	padding-bottom: 22px
+	margin-top: -4px
+	&-container
+		display: flex
+		justify-content: space-between
+		flex-wrap: wrap
+	&-col
+		padding-right: 40px
+		&:nth-child(1)
+			width: 17%
+			min-width: 210px
+		&:nth-child(2)
+			width: 18%
+			min-width: 226px
+		&:nth-child(3)
+			width: 27%
+			min-width: 340px
+		&:nth-child(4)
+			width: 15%
+			min-width: 190px
+		&:nth-child(5)
+			width: 23%
+			min-width: 280px
+		&__title
+			color: white
+			font-size: 16px
+			line-height: 24px
+			margin-bottom: 15px
+			display: inline-block
+		&__list
+			padding-left: 0
+			list-style-type: none
+		&__item
+			margin-bottom: 7px
+			position: relative
+		&__link
+			color: white
+			font-weight: 300
+			font-size: 15px
+			transition-duration: .2s
+			cursor: pointer
+			&.main-header__location-link
+				margin-left: 20px
+				margin-bottom: 10px
+			&:hover
+				color: white
+				text-decoration: none
+				opacity: 0.5
+
+@media screen and ( max-width: 1365px )
+	.footer
+		&-col
+			&:nth-child(1)
+				width: 33%
+				min-width: 250px
+			&:nth-child(2)
+				width: 33%
+				min-width: 250px
+			&:nth-child(3)
+				width: 33%
+				min-width: 250px
+			&:nth-child(4)
+				width: 33%
+				min-width: 250px
+				order: 5
+			&:nth-child(5)
+				width: 33%
+				min-width: 250px
+				order: 4
+
+@media screen and ( max-width: 779px )
+	.footer
+		&-col
+			position: relative
+			overflow: hidden
+			&:nth-child(1)
+				width: 100%
+				min-width: 100%
+			&:nth-child(2)
+				width: 100%
+				min-width: 100%
+			&:nth-child(3)
+				width: 100%
+				min-width: 100%
+			&:nth-child(4)
+				width: 100%
+				min-width: 100%
+				order: 4
+			&:nth-child(5)
+				width: 100%
+				min-width: 100%
+				order: 5
+			&:last-child
+				.footer-col__list
+					display: block
+			&__list
+				display: none
+				margin-bottom: 0
