@@ -403,7 +403,7 @@ footerElemsPosition();
 
 function footerOpenList(elem) {
 	if ($(window).width() < 780) {
-		$(".js-footer-col__list:visible").slideUp(400);
+		$(".js-footer-col__list").slideUp(400);
 		if(!elem.next().is(':visible')) {
 			elem.next().slideDown(400);
 		}
@@ -413,10 +413,12 @@ function footerOpenList(elem) {
 }
 
 $(window).on('resize-end', function () {
-	footerElemsPosition();
 	if ($(window).width() >= 780) {
-		$(".js-footer-col__list:visible").slideDown(400);
+		$(".js-footer-col__list").show();
+	} else {
+		$(".js-footer-col__list").hide();
 	}
+	footerElemsPosition();
 })
 
 $(document).on('click', '.js-footer-col__title', function () {
