@@ -33,6 +33,13 @@
 			margin-bottom: 10px
 	&-item
 		width: 180px
+		&:not(.attachments-item_active)
+			cursor: pointer
+			
+			&:hover
+				.attachments-item
+					&__img
+						border: 2px solid #e34f07
 		&__top
 			height: 560px
 			background-position: center
@@ -47,6 +54,7 @@
 			background-position: center
 			background-repeat: no-repeat
 			border: 1px solid gray
+			transition-duration: .1s
 		&__title
 			opacity: 0
 			transition-duration: .3s

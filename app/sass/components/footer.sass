@@ -58,6 +58,10 @@
 				color: white
 				text-decoration: none
 				opacity: 0.5
+		&__email
+			color: #e34f07
+			&:hover
+				color: #e34f07
 		&__logo
 			display: inline-block
 			&-block
@@ -91,6 +95,8 @@
 
 @media screen and ( max-width: 1365px )
 	.footer
+		&-container
+			padding-bottom: 30px
 		&-col
 			&:nth-child(1)
 				width: 33%
@@ -133,6 +139,7 @@
 		&-col
 			position: relative
 			overflow: hidden
+			padding-right: 0
 			&:nth-child(1)
 				width: 100%
 			&:nth-child(2)
@@ -149,20 +156,20 @@
 				.footer-col__list
 					display: block
 			&:nth-child(6)
-				width: 75%
+				width: 220px
 				margin-top: 0
 				margin-left: 0
 				text-align: left
 			&:nth-child(7)
-				width: 25%
+				width: calc(100% - 230px)
 				margin-top: 0
 				margin-left: 0
+				padding-left: 30px
 				text-align: left
 			&:nth-child(8)
 				width: 100%
 			&__search
 				display: block
-				margin: 0 auto
 				margin-top: 45px
 				.button_search__icon
 					margin-right: 0
@@ -172,7 +179,8 @@
 				display: none
 				margin-bottom: 0
 			&__title
-				margin-bottom: 25px
+				margin-top: 10px
+				margin-bottom: 15px
 		&-bottom
 			flex-wrap: wrap
 			height: 120px
