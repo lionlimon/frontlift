@@ -20,8 +20,8 @@ $(function () {
 	});
 
 	$('.js-dropdown-close').on('click', function (e) {
-		$('.js-dropdown-open').toggleClass('active');
-		$('.js-dropdown').toggleClass('active');
+		$('.js-dropdown-open').removeClass('active');
+		$('.js-dropdown').removeClass('active');
 	});
 
 	$('body').on('click', function (e) {
@@ -73,14 +73,15 @@ $(function () {
 	// Mobile menu
 	$('.js-mobile-menu-open, .js-mobile-menu-back').on('click', function (e) {
 
-
-		var menu = $(".js-mobile-menu");
-		if (!menu.is(e.target)
-			&& menu.has(e.target).length === 0) {
-			$('.js-mobile-menu-back').toggleClass('active');
-			menu.toggleClass('active');
-			$('.js-mobile-menu-open').toggleClass('active');
-			$('body').toggleClass('no-scroll');
+		if (window.innerWidth < 1366) {
+			var menu = $(".js-mobile-menu");
+			if (!menu.is(e.target)
+				&& menu.has(e.target).length === 0) {
+				$('.js-mobile-menu-back').toggleClass('active');
+				menu.toggleClass('active');
+				$('.js-mobile-menu-open').toggleClass('active');
+				$('body').toggleClass('no-scroll');
+			}
 		}
 	});
 
@@ -107,37 +108,44 @@ $(function () {
 
 	// Attach slider
 	var attach = new Swiper('.attachments-slider', {
-		spaceBetween: 30,
-		slidesPerView: 8,
+		spaceBetween: 20,
+		slidesPerView: 2,
 		loop: true,
 		slideToClickedSlide: true,
+		breakpoints: {
+			0: {
+				slidesPerView: 2,
+				centeredSlides: true
+			},
+			560: {
+				slidesPerView: 3.5,
+			},
+			780: {
+				slidesPerView: 4,
+				centeredSlides: false
+			},
+			1000: {
+				slidesPerView: 5,
+			},
+			1200: {
+				slidesPerView: 6,
+			},
+			1366: {
+				slidesPerView: 4.5
+			},
+			1500: {
+				slidesPerView: 5
+			},
+			1700: {
+				slidesPerView: 6
+			},
+		}
 	});
-	// attach.swiper({
-	// 	loop: true,
-	// 	items: 9,
-	// 	margin: 18,
-	// 	autoWidth: true,
-	// 	responsive: {
-	// 		0: {
-	// 			center: true
-	// 		},
-	// 		1366: {
-	// 			center: false
-	// 		}
-	// 	}
-	// });
 
 	function addAttachActive() {
 		$('.attachments-item').removeClass('attachments-item_active');
 
 		setTimeout(function () {
-			var itemNum = 2;
-			if ($(window).width() < 1100) {
-				itemNum = 0;
-			} else if ($(window).width() < 1366) {
-				itemNum = 1;
-			}
-
 			var item = $('.attachments .swiper-slide-active');
 			item.addClass('attachments-item_active');
 
@@ -149,16 +157,39 @@ $(function () {
 					.animate({ opacity: 1 }, { duration: 300 });
 			});
 		}, 100);
+
+		// Interactive dino
+		$('.js-interactive-dot').hover(function () {
+			$('.js-interactive-dino-item').each(function () {
+				if ($(this).hasClass('active'))
+					$(this).removeClass('active');
+			});
+
+			$(this).parent().toggleClass('active');
+
+			if (window.innerWidth < 779) { // Mobile 
+				$('.js-interactive-mobile-items .interactive-dino__item-info').remove();
+				var info = $(this).parent().find('.interactive-dino__item-info');
+				var mobileContainer = $('.js-interactive-mobile-items');
+
+				mobileContainer.append(info.clone().css('display', 'none').fadeIn(200));
+			}
+
+		}, function() {
+			$(this).parent().toggleClass('active');
+		});
 	};
+
+
 
 	addAttachActive();
 
 	$(document).on('click', '.attachments-slider__button', function () {
-		attach.trigger('prev.owl.carousel', [300]);
+		attach.slidePrev(300);
 	})
 
 	$(document).on('click', '.attachments-item__button', function () {
-		attach.trigger('next.owl.carousel', [300]);
+		attach.slideNext(300);
 	})
 
 	attach.on('slideChangeTransitionStart', function () {
@@ -302,7 +333,7 @@ function validate(elem) {
 			return 'correct';
 		}
 	} else {
-		if (/[^0-9-() ]+/.test(elem.value) && elem.value.length == 18) {
+		if (/[0-9+() ]/.test(elem.value)) {
 			setStatusClass('correct', elem);
 			return 'correct';
 		}
@@ -351,13 +382,7 @@ $(document).on('click focus', '.js-form__email, .js-form-sub__input, .js-form__p
 })
 
 $(document).on('keyup', '.js-form__phone', function () {
-	var num = this.value.replace(/\D/g, '').split(/(?=.)/), i = num.length - 1;
-	if (0 < i) num.unshift('+');
-	if (1 <= i) num.splice(2, 0, ' (');
-	if (4 <= i) num.splice(6, 0, ') ');
-	if (7 <= i) num.splice(10, 0, '-');
-	if (9 <= i) num.splice(13, 0, '-');
-	this.value = num.splice(0, 16).join('');
+	this.value = this.value.replace(/[^+0-9-() ]/, '');
 	this.dataset.value = this.value;
 })
 
