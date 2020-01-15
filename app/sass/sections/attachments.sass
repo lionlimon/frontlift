@@ -14,11 +14,13 @@
 		padding-bottom: 60px
 		z-index: 2
 	&-slider
-		padding-left: 75px
+		margin-left: 75px
+		overflow: hidden
+		width: calc(100% - 75px)
+		padding-left: 470px
 		&__button
 			background: none
 			border: none
-			background-image: url(../img/attach-arrow.png)
 			height: 38px
 			width: 36px
 			position: absolute
@@ -26,13 +28,20 @@
 			left: 22px
 			cursor: pointer
 			z-index: 10
+			padding: 0
+			img
+				transition-duration: .3s
+				max-width: 100%
+				filter: saturate(0) contrast(130%) brightness(180%)
 			&:focus
 				outline: none
+			&:hover
+				img
+					filter: none
 		&-top
 			margin-top: 105px
 			margin-bottom: 10px
 	&-item
-		width: 180px
 		&:not(.attachments-item_active)
 			cursor: pointer
 			
@@ -83,7 +92,6 @@
 		&__button
 			border: none
 			background: none
-			background-image: url(../img/attach-arrow-next.png)
 			height: 29px
 			width: 32px
 			display: inline-block
@@ -91,8 +99,15 @@
 			position: absolute
 			top: -4px
 			cursor: pointer
+			padding: 0
+			img
+				transition-duration: .3s
+				max-width: 100%
 			&:focus
 				outline: none
+			&:hover
+				img
+					filter: brightness(120%)
 
 @media screen and ( max-width: 1365px )
 	.attachments
@@ -104,6 +119,8 @@
 			padding-left: 60px
 		&-slider
 			padding-left: 0
+			margin-left: 20px
+			width: calc(100% - 20px)
 			&__button
 				display: none
 			&-top
@@ -114,6 +131,9 @@
 
 @media screen and ( max-width: 779px )
 	.attachments
+		&-slider
+			width: 100%
+			margin-left: 0
 		&__title
 			text-align: left
 			font-size: 30px
