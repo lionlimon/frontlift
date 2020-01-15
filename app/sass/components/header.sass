@@ -20,7 +20,6 @@
 	width: 18px
 	height: 16px
 	position: relative
-	
 	cursor: pointer
 	display: inline-block
 	
@@ -412,7 +411,7 @@
 			position: absolute
 			background-color: rgba(#232323cc, 0.95)		
 			height: 100vh
-			width: 100vw
+			width:	0
 			left: 0
 			text-transform: uppercase
 			top: 66px
@@ -424,6 +423,7 @@
 			&.active
 				visibility: visible
 				opacity: 1
+				width: 100vw
 
 
 		&__list 
@@ -583,6 +583,7 @@
 
 		&__nav
 			line-height: 1.5
+			min-width: 320px
 
 		&__bottom-line 
 			padding-right: 0
